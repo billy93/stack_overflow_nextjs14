@@ -30,8 +30,14 @@ export default function middleware(req:any) {
 
   // Define the paths to bypass
   const bypassPaths = [
-    '/api/webhook',
-    '/api/success',
+      '/',
+      '/api/webhook',
+      '/question/:id',
+      '/tags',
+      '/tags/:id',
+      '/profile/:id',
+      '/community',
+      '/jobs'  
   ];
 
   // Check if the request path matches any bypass path
@@ -54,7 +60,6 @@ export default function middleware(req:any) {
     ],
     ignoredRoutes: [
       '/api/webhook',
-      '/api/success',
       '/api/chatgpt'
     ]
   });
