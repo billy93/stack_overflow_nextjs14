@@ -25,19 +25,13 @@
 import { NextResponse } from 'next/server';
 import { authMiddleware } from '@clerk/nextjs';
 
-export default function middleware(req) {
+export default function middleware(req:any) {
   const url = req.nextUrl.clone();
 
   // Define the paths to bypass
   const bypassPaths = [
     '/api/webhook',
     '/api/success',
-    '/question/:id',
-    '/tags',
-    '/tags/:id',
-    '/profile/:id',
-    '/community',
-    '/jobs'
   ];
 
   // Check if the request path matches any bypass path
@@ -63,7 +57,7 @@ export default function middleware(req) {
       '/api/success',
       '/api/chatgpt'
     ]
-  })(req);
+  });
 }
 
 export const config = {
